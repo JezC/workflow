@@ -79,6 +79,7 @@ module Workflow
     attr_accessor :name, :transitions_to, :meta, :action
     
     def initialize(name, transitions_to, meta = {}, &action)
+      raise "missing 'transitions_to' from workflow for '#{name}'" if transitions_to == nil 
       @name, @transitions_to, @meta, @action = name, transitions_to.to_sym, meta, action
     end
     
