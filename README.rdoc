@@ -68,6 +68,13 @@ are very problematic.
   As little meta programming as needed - not as much as possible. ;-)
   So you can easily extend or modify it to suit your needs.
 
+* Easy to extend, for example, add this to the model to turn each state into a named scope:
+
+  workflow_spec.states.keys.each do |state|
+     named_scope state, :conditions => ['workflow_state = ?', state.to_s] 
+  end
+
+
 
 == Installation
 
